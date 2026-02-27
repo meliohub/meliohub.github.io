@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AetherLoader | CS:GO Mod Enhancer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+/* base reset stuff */
+body{margin:0;color:#fff;font-family:'Inter',sans-serif;background-color:#000;overflow-x:hidden}
+#universe{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+/* glass cards that breaks on safari browser - wonderFULL */
+.glass{background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border:1px solid rgba(56,189,248,0.15);transform-style:preserve-3d;box-shadow:0 4px 30px rgba(0,0,0,0.5)}
+.glass:hover{border:1px solid rgba(56,189,248,0.4);box-shadow:0 0 20px rgba(29,78,216,0.2)}
+.glass-inner{transform:translateZ(30px)}
+/* colors */
+.accent-gradient{background:linear-gradient(135deg,#38bdf8 0%,#1d4ed8 100%)}
+.text-gradient{background:linear-gradient(135deg,#38bdf8 0%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.video-glow{box-shadow:0 0 60px -15px rgba(56,189,248,0.4)}
+</style>
+</head>
+<body>
+
+<canvas id="universe"></canvas>
+
+<div style="background:rgba(30,58,138,0.3);border-bottom:1px solid #1d4ed8;text-align:center;padding:10px;position:relative;z-index:99;" class="text-sky-400 text-xs md:text-sm font-mono tracking-wider"><i class="fa-solid fa-triangle-exclamation"></i> HEADS UP: Website and loader are still under construction. expect bugs tbh.</div>
+
+<nav class="p-6 flex justify-between items-center max-w-6xl mx-auto relative z-10">
+<div class="flex items-center gap-5">
+<a href="index.html" class="text-gray-400 hover:text-sky-400 transition-all duration-300 flex items-center gap-2 text-sm font-medium bg-blue-900/20 px-4 py-2 rounded-lg border border-blue-900/50 hover:border-sky-500/50 shadow-lg"><i class="fa-solid fa-arrow-left"></i> <span class="hidden sm:inline">Back to Homepage</span></a>
+<div class="text-2xl font-bold tracking-tighter text-sky-400 hidden md:block" style="letter-spacing:-1px;">AETHER<span class="text-white">LOADER</span></div>
+</div>
+<div class="space-x-8 hidden lg:flex font-medium text-gray-300"><a href="#features" class="hover:text-sky-400 transition">Features</a><a href="#showcase" class="hover:text-sky-400 transition">Showcase</a><a href="https://github.com/meliohub/meliohub.github.io/discussions" target="_blank" class="hover:text-sky-400 transition">Forum</a></div>
+<a href="#download" class="accent-gradient text-white px-6 py-2 rounded-full font-bold hover:scale-105 transition shadow-lg shadow-blue-600/30">Download</a>
+</nav>
+
+<header id="download" class="py-20 px-6 text-center max-w-4xl mx-auto relative z-10">
+<h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg text-white">Enhance your <span class="text-gradient">CS:GO</span> experience.</h1>
+    <p class="text-lg text-gray-400 mb-10 font-light">The ultimate proprietary mod loader for Counter-Strike. Lightweight, secure, and built for performance.</p>
+<div class="flex justify-center gap-4">
+<a href="https://github.com/meliohub/meliohub.github.io/releases/latest" id="main-download-btn" class="accent-gradient text-white px-8 py-4 rounded-lg font-bold text-xl flex items-center gap-3 hover:scale-105 transition shadow-lg shadow-blue-600/40"><i class="fa-solid fa-download"></i> Get AetherLoader</a>
+</div>
+<p class="mt-6 text-sm text-gray-400 font-mono bg-black/80 inline-block px-4 py-1 rounded-full border border-blue-900/50">Latest Version: <span id="ver-tag" class="text-sky-400 font-bold">Awaiting Release</span> | Always Free</p>
+</header>
+
+<section id="features" class="py-20 max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 relative z-10">
+<div class="glass p-8 rounded-2xl transition duration-300" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1"><div class="glass-inner"><div class="w-12 h-12 rounded-lg bg-blue-900/30 flex items-center justify-center mb-6 border border-sky-500/30"><i class="fa-solid fa-bolt text-sky-400 text-2xl"></i></div><h3 class="text-xl font-bold mb-3 text-white">Instant Injection</h3><p class="text-gray-400 text-sm leading-relaxed">Launch the client, select your preferred configuration, and inject directly into the game process seamlessly. Spend less time setting up and more time playing.</p></div></div>
+<div class="glass p-8 rounded-2xl transition duration-300" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1"><div class="glass-inner"><div class="w-12 h-12 rounded-lg bg-blue-900/30 flex items-center justify-center mb-6 border border-sky-500/30"><i class="fa-solid fa-cloud-arrow-down text-sky-400 text-2xl"></i></div><h3 class="text-xl font-bold mb-3 text-white">Always Up-to-Date</h3><p class="text-gray-400 text-sm leading-relaxed">Never worry about outdated offsets or game patches again. Our system automatically fetches the latest, safest versions from our database the moment you launch.</p></div></div>
+<div class="glass p-8 rounded-2xl transition duration-300" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1"><div class="glass-inner"><div class="w-12 h-12 rounded-lg bg-blue-900/30 flex items-center justify-center mb-6 border border-sky-500/30"><i class="fa-solid fa-shield text-sky-400 text-2xl"></i></div><h3 class="text-xl font-bold mb-3 text-white">VAC Safe</h3><p class="text-gray-400 text-sm leading-relaxed">Advanced execution methods utilizing modern evasion techniques, designed specifically to operate safely within the boundaries of fair play.</p></div></div>
+</section>
+
+<section id="showcase" class="py-24 relative z-10">
+<div class="absolute inset-0 bg-black/60 -z-10 border-t border-b border-blue-900/30"></div>
+<div class="max-w-5xl mx-auto px-6">
+<div class="text-center mb-12"><h2 class="text-3xl font-bold text-white">Loader in Action</h2><p class="text-gray-400 mt-2">Watch the seamless injection and dynamic mod fetching.</p></div>
+<div class="glass p-3 rounded-2xl video-glow mx-auto border border-sky-500/40"><div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black"><iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&rel=0&showinfo=0" title="AetherLoader Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+</div>
+</section>
+<section id="gallery" class="py-24 relative z-10">
+<div class="max-w-6xl mx-auto px-6">
+<div class="text-center mb-16"><h2 class="text-3xl font-bold text-white">Interface Preview</h2><p class="text-gray-400 mt-2">A look inside the AetherLoader client.</p></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="glass p-2 rounded-xl group overflow-hidden border border-blue-900/50 hover:border-sky-500/50 transition duration-300 shadow-2xl"><div class="overflow-hidden rounded-lg bg-black"><img src="https://placehold.co/800x450/000000/38bdf8?text=Dashboard+Preview" alt="AetherLoader Dashboard" class="w-full h-auto transform group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100"></div></div>
+<div class="glass p-2 rounded-xl group overflow-hidden border border-blue-900/50 hover:border-sky-500/50 transition duration-300 shadow-2xl"><div class="overflow-hidden rounded-lg bg-black"><img src="https://placehold.co/800x450/000000/38bdf8?text=Injection+Menu" alt="Injection Settings" class="w-full h-auto transform group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100"></div></div>
+</div></div>
+</section>
+
+<footer class="py-10 text-center border-t border-blue-900/30 relative z-10 bg-black/80"><p class="text-gray-500 text-sm font-medium">© 2026 AetherLoader Project. Not affiliated with Valve Corp.</p></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+<script>
+// star canvas logic
+const cvs=document.getElementById('universe');const ctx=cvs.getContext('2d');
+let stars=[],mX=window.innerWidth/2,mY=window.innerHeight/2;
+window.addEventListener('mousemove',e=>{mX=e.clientX;mY=e.clientY;});
+function initStars(){
+cvs.width=window.innerWidth;cvs.height=window.innerHeight;stars=[];
+for(let i=0;i<200;i++) stars.push({x:Math.random()*cvs.width,y:Math.random()*cvs.height,s:Math.random()*2+1,spd:Math.random()*0.8+0.1,o:Math.random()});
+}
+function drawStars(){
+ctx.clearRect(0,0,cvs.width,cvs.height);
+let oX=(mX-cvs.width/2)*0.02,oY=(mY-cvs.height/2)*0.02;
+stars.forEach(s=>{
+ctx.fillStyle=`rgba(255,255,255,${s.o})`;
+ctx.fillRect(s.x-(oX*s.spd),s.y-(oY*s.spd),s.s,s.s);
+s.y+=s.spd;
+if(s.y>cvs.height){s.y=0;s.x=Math.random()*cvs.width;}
+});
+requestAnimationFrame(drawStars);
+}
+window.addEventListener('resize',initStars);initStars();drawStars();
+
+// github release fetcher
+async function getGithubRelease(){
+try{
+let r=await fetch(`https://api.github.com/repos/meliohub/meliohub.github.io/releases/latest`);
+if(!r.ok)return;
+let j=await r.json();
+let btn=document.getElementById('main-download-btn'),tag=document.getElementById('ver-tag');
+if(j.assets&&j.assets.length>0){btn.href=j.assets[0].browser_download_url;tag.innerText=j.tag_name;}
+else{btn.href=j.html_url;tag.innerText=j.tag_name;}
+}catch(e){console.log("api broke",e);}
+}
+getGithubRelease();
+</script>
+</body>
+</html>

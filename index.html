@@ -1,240 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AetherLoader | CS:GO Mod Enhancer</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+<title>cacamelio's hub</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <style>
-    /* base stuff */
-    body { margin: 0; color: #ffffff; font-family: 'Inter', sans-serif; background-color: #000000; overflow-x: hidden; }
-        #universe { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        
-    /* cards - DO NOT TOUCH BACKDROP FILTER IT BREAKS ON SAFARI SOMETIMES IDK */
-    .glass { 
-        background: rgba(0, 0, 0, 0.7); 
-        backdrop-filter: blur(12px); 
-        border: 1px solid rgba(56, 189, 248, 0.15); 
-        transform-style: preserve-3d;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    }
-        .glass:hover {
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            box-shadow: 0 0 20px rgba(29, 78, 216, 0.2);
-        }
-    .glass-inner { transform: translateZ(30px); }
+/* basic reset */
+body { margin:0; background:#000; color:#fff; overflow-x:hidden; }
 
-    .accent-gradient { background: linear-gradient(135deg, #38bdf8 0%, #1d4ed8 100%); }
-    .text-gradient { background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-    .video-glow { box-shadow: 0 0 60px -15px rgba(56, 189, 248, 0.4); }
-    /* .debug { border: 1px solid red; } */
+/* video bg hack */
+.vid-bg { position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:-2; overflow:hidden; }
+.vid-bg iframe { width:100vw; height:56.25vw; min-height:100vh; min-width:177.77vh; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); pointer-events:none; }
+.dark-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:-1; }
+
+/* glass stuff - DO NOT TOUCH IT BREAKS ON SAFARI */
+.glass { background: rgba(10,10,10,0.6); backdrop-filter: blur(16px); border: 1px solid rgba(249,115,22,0.2); box-shadow: 0 4px 30px rgba(0,0,0,0.5); transition: 0.3s; }
+.glass:hover { border-color: rgba(249,115,22,0.8); box-shadow: 0 0 25px rgba(249,115,22,0.15); transform: translateY(-5px); }
+.txt-orange { background: linear-gradient(135deg, #f97316, #ea580c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hover-btn { transition: 0.3s; }
+.hover-btn:hover { box-shadow: 0 0 15px rgba(249,115,22,0.4); transform: scale(1.02); }
 </style>
 </head>
-<body>
 
-<canvas id="universe"></canvas>
+<body class="flex flex-col items-center justify-center py-12 px-4 min-h-screen">
 
-<div style="background: rgba(30, 58, 138, 0.3); border-bottom: 1px solid #1d4ed8; text-align: center; padding: 10px; position: relative; z-index: 99;" class="text-sky-400 text-xs md:text-sm font-mono tracking-wider">
-    <i class="fa-solid fa-triangle-exclamation"></i> HEADS UP: Website and loader are still under construction. expect bugs tbh.
+<div class="vid-bg">
+    <iframe src="https://www.youtube.com/embed/eCHaiEjCDFM?autoplay=1&mute=1&loop=1&playlist=eCHaiEjCDFM&controls=0&showinfo=0&autohide=1" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+</div>
+<div class="dark-overlay"></div>
+
+<div class="w-full max-w-5xl mx-auto flex flex-col items-center z-10 relative">
+    
+<div class="text-center mb-16">
+<div class="w-24 h-24 mx-auto bg-black border-2 border-orange-500 rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(249,115,22,0.3)]">
+<i class="fa-solid fa-bolt text-4xl text-orange-500"></i>
+</div>
+    <h1 class="text-5xl md:text-7xl font-black mb-4">MELIO<span class="txt-orange">HUB</span></h1>
+<p class="text-gray-400">Welcome to my central network. Connect with the community or explore my latest developments below.</p>
 </div>
 
-<nav class="p-6 flex justify-between items-center max-w-6xl mx-auto relative z-10">
-        <div class="text-2xl font-bold tracking-tighter text-sky-400" style="letter-spacing: -1px;">AETHER<span class="text-white">LOADER</span></div>
-        
-        <div class="space-x-8 hidden md:flex font-medium text-gray-300">
-            <a href="#features" class="hover:text-sky-400 transition">Features</a>
-            <a href="#showcase" class="hover:text-sky-400 transition">Showcase</a>
-            <a href="https://github.com/meliohub/meliohub.github.io/discussions" target="_blank" class="hover:text-sky-400 transition">Forum</a>
+<div class="grid md:grid-cols-2 gap-8 w-full">
+
+    <div class="glass p-8 rounded-2xl">
+        <div class="flex items-center gap-4 mb-8 border-b border-orange-500/20 pb-4">
+            <i class="fa-solid fa-address-book text-2xl text-orange-500"></i>
+            <h2 class="text-2xl font-bold text-white">Connect</h2>
         </div>
         
-    <a href="#download" class="accent-gradient text-white px-6 py-2 rounded-full font-bold hover:scale-105 transition shadow-lg shadow-blue-600/30">Download</a>
-    </nav>
-
-<header id="download" class="py-20 px-6 text-center max-w-4xl mx-auto relative z-10">
-    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg text-white">Enhance your <span class="text-gradient">CS:GO</span> experience.</h1>
-    <p class="text-lg text-gray-400 mb-10 font-light">The ultimate proprietary mod loader for Counter-Strike. Lightweight, secure, and built for performance.</p>
-        
-        <div class="flex justify-center gap-4">
-            <a href="https://github.com/meliohub/meliohub.github.io/releases/latest" id="main-download-btn" class="accent-gradient text-white px-8 py-4 rounded-lg font-bold text-xl flex items-center gap-3 hover:scale-105 transition shadow-lg shadow-blue-600/40">
-                <i class="fa-solid fa-download"></i> Get AetherLoader
-            </a>
-        </div>
-        
-    <p class="mt-6 text-sm text-gray-400 font-mono bg-black/80 inline-block px-4 py-1 rounded-full border border-blue-900/50">Latest Version: <span id="ver-tag" class="text-sky-400 font-bold">Awaiting Release</span> | Always Free</p>
-</header>
-
-<section id="features" class="py-20 max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 relative z-10">
-        
-<div class="glass p-8 rounded-2xl transition duration-300" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
-        <div class="glass-inner">
-            <div class="w-12 h-12 rounded-lg bg-blue-900/30 flex items-center justify-center mb-6 border border-sky-500/30">
-                <i class="fa-solid fa-bolt text-sky-400 text-2xl"></i>
+        <div class="space-y-4">
+        <a href="https://www.youtube.com/@sorecarulaetherian" target="_blank" class="hover-btn flex items-center justify-between bg-black/50 border border-gray-800 hover:border-orange-500 p-4 rounded-xl group">
+            <div class="flex items-center gap-4">
+                <i class="fa-brands fa-youtube text-2xl text-red-500 group-hover:text-orange-500 transition-colors"></i>
+                <div><h3 class="font-bold text-white">YouTube Channel</h3><p class="text-xs text-gray-500">@sorecarulaetherian</p></div>
             </div>
-            <h3 class="text-xl font-bold mb-3 text-white">Instant Injection</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">Launch the client, select your preferred configuration, and inject directly into the game process seamlessly. Spend less time setting up and more time playing.</p>
+            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-orange-500"></i>
+        </a>
+
+        <a href="https://t.me/cacamelio" target="_blank" class="hover-btn flex items-center justify-between bg-black/50 border border-gray-800 hover:border-orange-500 p-4 rounded-xl group">
+            <div class="flex items-center gap-4">
+            <i class="fa-brands fa-telegram text-2xl text-blue-400 group-hover:text-orange-500 transition-colors"></i>
+            <div><h3 class="font-bold text-white">Personal Telegram</h3><p class="text-xs text-gray-500">@cacamelio</p></div>
+            </div>
+            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-orange-500"></i>
+        </a>
+
+        <a href="https://t.me/meliohub" target="_blank" class="hover-btn flex items-center justify-between bg-black/50 border border-gray-800 hover:border-orange-500 p-4 rounded-xl group">
+            <div class="flex items-center gap-4">
+            <i class="fa-solid fa-users text-2xl text-blue-400 group-hover:text-orange-500 transition-colors"></i>
+            <div><h3 class="font-bold text-white">Telegram Community</h3><p class="text-xs text-gray-500">t.me/meliohub</p></div>
+            </div>
+            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-orange-500"></i>
+        </a>
+
+        <a href="https://tmspk.gg/i8w7Htij" target="_blank" class="hover-btn flex items-center justify-between bg-black/50 border border-gray-800 hover:border-orange-500 p-4 rounded-xl group">
+            <div class="flex items-center gap-4">
+            <i class="fa-brands fa-teamspeak text-2xl text-indigo-400 group-hover:text-orange-500 transition-colors"></i>
+            <div><h3 class="font-bold text-white">TeamSpeak Group Chat</h3><p class="text-xs text-gray-500">Join the discussion</p></div>
+            </div>
+            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-orange-500"></i>
+        </a>
+
+        <div class="flex items-center justify-between bg-black/50 border border-gray-800 p-4 rounded-xl">
+            <div class="flex items-center gap-4">
+            <i class="fa-solid fa-headset text-2xl text-indigo-400"></i>
+            <div><h3 class="font-bold text-white">My TeamSpeak ID</h3><p class="text-xs text-gray-500 font-mono">cacamelio@myteamspeak.com</p></div>
+            </div>
+            <button onclick="navigator.clipboard.writeText('cacamelio@myteamspeak.com'); alert('copied');" class="text-gray-500 hover:text-orange-500 transition-colors">
+            <i class="fa-regular fa-copy text-xl"></i>
+            </button>
+        </div>
         </div>
     </div>
-        
-    <div class="glass p-8 rounded-2xl transition duration-300" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
-        <div class="glass-inner">
-            <div class="w-12 h-12 rounded-lg bg-blue-900/30 flex items-center justify-center mb-6 border border-sky-500/30">
-                <i class="fa-solid fa-cloud-arrow-down text-sky-400 text-2xl"></i>
+
+    <div class="glass p-8 rounded-2xl">
+        <div class="flex items-center gap-4 mb-8 border-b border-orange-500/20 pb-4">
+            <i class="fa-solid fa-code-branch text-2xl text-orange-500"></i>
+            <h2 class="text-2xl font-bold text-white">Projects</h2>
+        </div>
+
+        <div class="space-y-6">
+            <div class="bg-black/40 border border-gray-800 rounded-xl p-6 relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-br from-orange-500 to-orange-600 group-hover:w-2 transition-all"></div>
+                <h3 class="text-xl font-bold text-white mb-2">FireHook</h3>
+                <p class="text-sm text-gray-400 mb-6">My own cs2 cheat (build in progress).</p>
+                <a href="https://firehook.xyz" target="_blank" class="inline-block border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-black font-bold py-2 px-6 rounded-lg transition-colors text-sm">Visit Site</a>
             </div>
-            <h3 class="text-xl font-bold mb-3 text-white">Always Up-to-Date</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">Never worry about outdated offsets or game patches again. Our system automatically fetches the latest, safest versions from our database the moment you launch.</p>
-        </div>
-    </div>
 
-        <div class="glass p-8 rounded-2xl transition duration-300" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
-            <div class="glass-inner">
-                <div class="w-12 h-12 rounded-lg bg-blue-900/30 flex items-center justify-center mb-6 border border-sky-500/30">
-                    <i class="fa-solid fa-shield text-sky-400 text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-white">VAC Safe</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Advanced execution methods utilizing modern evasion techniques, designed specifically to operate safely within the boundaries of fair play.</p>
-            </div>
-        </div>
-
-</section>
-
-<section id="showcase" class="py-24 relative z-10">
-    <div class="absolute inset-0 bg-black/60 -z-10 border-t border-b border-blue-900/30"></div>
-    <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-white">Loader in Action</h2>
-            <p class="text-gray-400 mt-2">Watch the seamless injection and dynamic mod fetching.</p>
-        </div>
-
-        <div class="glass p-3 rounded-2xl video-glow mx-auto border border-sky-500/40">
-            <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
-                <iframe 
-                    class="absolute top-0 left-0 w-full h-full" 
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&rel=0&showinfo=0" 
-                    title="AetherLoader Showcase" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+            <div class="bg-black/40 border border-gray-800 rounded-xl p-6 relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-br from-orange-500 to-orange-600 group-hover:w-2 transition-all"></div>
+                <h3 class="text-xl font-bold text-white mb-2">Aether Loader</h3>
+                <p class="text-sm text-gray-400 mb-6">The ultimate proprietary mod loader for CS:GO and CS2. Lightweight and secure.</p>
+                <a href="aether-loader.html" class="inline-block bg-gradient-to-br from-orange-500 to-orange-600 text-black font-bold py-2 px-6 rounded-lg hover:scale-105 transition-all text-sm">Launch Project</a>
             </div>
         </div>
     </div>
-</section>
 
-<section id="gallery" class="py-24 relative z-10">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white">Interface Preview</h2>
-                <p class="text-gray-400 mt-2">A look inside the AetherLoader client.</p>
-            </div>
+</div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass p-2 rounded-xl group overflow-hidden border border-blue-900/50 hover:border-sky-500/50 transition duration-300 shadow-2xl">
-                    <div class="overflow-hidden rounded-lg bg-black">
-                        <img src="https://placehold.co/800x450/000000/38bdf8?text=Dashboard+Preview" alt="AetherLoader Dashboard" class="w-full h-auto transform group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100">
-                    </div>
-                </div>
-                
-                <div class="glass p-2 rounded-xl group overflow-hidden border border-blue-900/50 hover:border-sky-500/50 transition duration-300 shadow-2xl">
-                    <div class="overflow-hidden rounded-lg bg-black">
-                        <img src="https://placehold.co/800x450/000000/38bdf8?text=Injection+Menu" alt="Injection Settings" class="w-full h-auto transform group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="mt-16 text-center text-gray-600 text-sm">
+    <p>&copy; 2026 cacamelio or whatever</p>
+</div>
 
-<footer class="py-10 text-center border-t border-blue-900/30 relative z-10 bg-black/80">
-    <p class="text-gray-500 text-sm font-medium">© 2026 AetherLoader Project. Not affiliated with Valve Corp.</p>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-
-<script>
-    // canvas star background thing
-    const cvs = document.getElementById('universe');
-    const ctx = cvs.getContext('2d');
-    var starsArray = [];
-    var mX = window.innerWidth / 2;
-    var mY = window.innerHeight / 2;
-
-    window.addEventListener('mousemove', function(e) {
-        mX = e.clientX;
-        mY = e.clientY;
-    });
-
-    function startDaStars() {
-        cvs.width = window.innerWidth;
-        cvs.height = window.innerHeight;
-        starsArray = [];
-        for (let i = 0; i < 200; i++) {
-            starsArray.push({
-                x: Math.random() * cvs.width,
-                y: Math.random() * cvs.height,
-                size: Math.random() * 2 + 1,
-                speed: Math.random() * 0.8 + 0.1,
-                opacity: Math.random()
-            });
-        }
-    }
-
-    function renderFrame() {
-        ctx.clearRect(0, 0, cvs.width, cvs.height);
-        
-        // calc mouse offset
-        let offX = (mX - cvs.width / 2) * 0.02;
-        let offY = (mY - cvs.height / 2) * 0.02;
-
-        starsArray.forEach(s => {
-            ctx.fillStyle = `rgba(255, 255, 255, ${s.opacity})`;
-            let dX = s.x - (offX * s.speed);
-            let dY = s.y - (offY * s.speed);
-            ctx.fillRect(dX, dY, s.size, s.size);
-            
-            s.y += s.speed;
-            
-            // reset if offscreen
-            if (s.y > cvs.height) {
-                s.y = 0;
-                s.x = Math.random() * cvs.width;
-            }
-        });
-        requestAnimationFrame(renderFrame);
-    }
-
-    window.addEventListener('resize', startDaStars);
-    startDaStars();
-    renderFrame();
-
-    // fetch latest release from github repo
-    const REPO_NAME = "meliohub/meliohub.github.io"; 
-    
-    async function getGithubStuff() {
-        try {
-            console.log("fetching api...");
-            let res = await fetch(`https://api.github.com/repos/${REPO_NAME}/releases/latest`);
-            if (!res.ok) {
-                console.log("no release found yet tbh");
-                return; 
-            }
-            let j = await res.json();
-            
-            if(j.assets && j.assets.length > 0) {
-                document.getElementById('main-download-btn').href = j.assets[0].browser_download_url;
-                document.getElementById('ver-tag').innerText = j.tag_name;
-            } else {
-                document.getElementById('main-download-btn').href = j.html_url;
-                document.getElementById('ver-tag').innerText = j.tag_name;
-            }
-        } catch (err) { 
-            console.error("api broke:", err); 
-        }
-    }
-    
-    getGithubStuff();
-</script>
+</div>
 </body>
 </html>
